@@ -1,19 +1,19 @@
-const lintStaged = require('lint-staged')
+const lintStaged = require('lint-staged');
 
 const main = async function () {
   try {
     const success = await lintStaged({
       config: {
-        'index.js': 'eslint --fix'
+        '*.js': "eslint"
       },
-      shell: false,
+      shell: true,
       quiet: false,
-      debug: false
-    })
-    console.log(success ? 'Linting was successful!' : 'Linting failed!')
+      debug: true
+    });
+    console.log(success ? 'Linting was successful!' : 'Linting failed!');
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
-}
+};
 
-main()
+main();
